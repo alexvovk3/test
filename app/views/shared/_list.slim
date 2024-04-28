@@ -1,0 +1,10 @@
+- if items.present?
+  ul
+    - items.map do |item, sub_items|
+      - item_path = local_assigns[:prefix_path] ? "#{prefix_path}#{page_show_path(item.name)}" : page_show_path(item.name)
+      li
+        = link_to item.name, item_path
+        - if sub_items.present?
+          = render 'shared/list', items: sub_items, prefix_path: item_path
+- else
+  p Страниц нет, но можно добавить

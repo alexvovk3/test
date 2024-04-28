@@ -1,0 +1,7 @@
+h1.title Список всех страниц
+
+.nav
+  = render 'shared/list', items: @pages
+
+.controls
+  = link_to 'Добавить корневую страницу', root_page_new_path, class: 'link'  

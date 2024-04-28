@@ -1,0 +1,14 @@
+- if notice
+  .notice = notice
+
+h1.title = @page.title
+.body = sanitize(@page.content, tags: %w(b i a))
+
+.controls
+  = link_to 'На главную', root_path, class: 'link'
+  = link_to 'Редактировать страницу', page_edit_path, class: 'link'
+  = link_to 'Добавить подстраницу', page_new_path, class: 'link'
+
+h2.title.title_sm Подстраницы
+.nav
+  = render 'shared/list', items: @page.descendants.arrange, prefix_path: @page.name

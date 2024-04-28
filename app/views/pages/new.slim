@@ -1,0 +1,6 @@
+- if @page_new.parent_id
+  h1.title Добавление подстраницы
+  = render 'form', page: @page_new, submit_path: page_create_path
+- else
+  h1.title Добавление корневой страницы
+  = render 'form', page: @page_new, submit_path: root_page_create_path

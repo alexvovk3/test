@@ -1,0 +1,7 @@
+require: rubocop-rails
+Documentation:
+  Enabled: false
+Metrics/BlockLength:
+  Enabled: false
+Lint/UselessAssignment:
+  Enabled: false    

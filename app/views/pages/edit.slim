@@ -1,0 +1,22 @@
+h1.title Редактирование страницы
+
+= form_with(model: @page, url: page_update_path) do |form|
+  - if @page.errors.any?
+    .error
+      h2 Ошибки при сохранении.
+      ol
+        - @page.errors.each do |error|
+          li = error.full_message
+
+  .field
+    = form.label :title, 'Заголовок'
+    = form.text_field :title
+
+  .field
+    = form.label :content, 'Текст'
+    = form.text_area :content, value: raw_text(@page.content)
+
+  .controls
+    = form.submit value: 'Сохранить', class: 'link'
+    = link_to 'На главную', root_path, class: 'link'
+    = link_to 'На страницу', page_show_path, class: 'link'

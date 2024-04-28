@@ -1,0 +1,11 @@
+doctype html
+html
+  head
+    title Интересный сайт
+    meta name='viewport' content='width=device-width,initial-scale=1'
+
+    = stylesheet_link_tag 'application'
+
+    = csrf_meta_tags
+  body
+    = yield

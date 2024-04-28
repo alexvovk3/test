@@ -1,0 +1,26 @@
+= form_with(model: page, url: submit_path) do |form|
+  - if page.errors.any?
+    .error
+      h2 Ошибки при сохранении.
+      ol
+        - page.errors.each do |error|
+          li = error.full_message
+
+  .field
+    = form.label :name, 'Имя'
+    = form.text_field :name
+
+  .field
+    = form.label :title, 'Заголовок'
+    = form.text_field :title
+
+  .field
+    = form.label :content, 'Текст'
+    = form.text_area :content
+
+  .field.hidden
+    = form.text_field :parent_id
+
+  .controls
+    = form.submit value: 'Сохранить', class: 'link'
+    = link_to 'На главную', root_path, class: 'link'
